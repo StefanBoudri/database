@@ -13,6 +13,11 @@ $options = [
 ];
 
 $pdo = new PDO($dsn, $user, $pass, $options);
+
+$statement = $pdo->prepare("SELECT * FROM producten ORDER BY product_code");
+$statement->execute();
+$products = $statement->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +32,7 @@ $pdo = new PDO($dsn, $user, $pass, $options);
 <body>
     <h1>Producten Overzicht</h1>
 
-    <table border="1">
+    <table>
         <thead>
             <tr>
                 <th>Productcode</th>

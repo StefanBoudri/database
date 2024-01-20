@@ -36,9 +36,9 @@ function Delete($id, PDO $pdo): void
 }
 
 //functie om inputfields te maken in een form
-function InputField($type, $field, $label, bool $bool): void
+function InputField($type, $field, $label, bool $required): void
 {
-    $required = !$bool ? 
+    $required = !$required ? 
         NULL : "required";
     
     echo "<label for='$field'>$label:</label>";
